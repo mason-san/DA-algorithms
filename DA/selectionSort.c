@@ -9,7 +9,7 @@ void displayArray(int n, int *a);
 
 int main(){
     //init 
-    int numberOfElements, elements[1000];
+    int numberOfElements, elements[100000];
     clock_t start, end; 
     double CPU_TIME_USED; 
 
@@ -28,9 +28,6 @@ int main(){
     CPU_TIME_USED = ((double)(end - start)) / CLOCKS_PER_SEC;  
 
     printf("\n\nCPU time taken for Selection Sort: %g seconds\n", CPU_TIME_USED); 
-
-    printf("After Sorting: \n"); 
-    displayArray(numberOfElements, elements); 
 
     return 0;
 }
