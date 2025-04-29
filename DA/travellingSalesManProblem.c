@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
+#include <time.h>
 
-int ary[10][10], completed[10], n, cost=0;
+int ary[100][100], completed[100], n, cost=0;
 
 void takeInput(){
     int i, j;
@@ -12,11 +14,12 @@ void takeInput(){
     printf("\nEnter the Cost Matrix.\n");
 
     for(i = 0 ; i < n ;i++){
-        printf("Enter row %d: \n", i+1);
         for(j = 0 ; j < n ; j++){
-            scanf("%d", &ary[i][j]);
+            if (i != j){
+                ary[i][j] = rand() % 10;
+            }
         }
-        printf("\n");
+        ary[i][i] = 0;
         completed[i] = 0;
     }
 
@@ -66,11 +69,18 @@ int least(int c){
 }
 
 int main(){
+
+    clock_t start, end;
+    double CPU_TIME_USED;
+    start=clock();
     takeInput();
 
     printf("\n\nThe Path is: \n");
     mincost(0);
+    end =  clock();
 
     printf("\n\nMinimum cost is %d\n", cost);
+
+    printf("\n\nCPU time taken for used for solve the problem: %g seconds\n", CPU_TIME_USED);
     return 0;
 }

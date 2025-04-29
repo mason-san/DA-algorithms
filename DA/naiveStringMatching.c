@@ -23,7 +23,7 @@ void search(char *pat, char *txt){
 
 int main(){
     char txt[25] = "AABAAABA";
-    char pat[25] = "AAC";
+    char pat[25] = "AAB";
     search(pat, txt);
     return 0;
 }
